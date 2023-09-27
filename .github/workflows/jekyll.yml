@@ -12,7 +12,11 @@ jobs:
     steps:
       - name: Clone repository
         uses: actions/checkout@v2
-
+      - name: yaml-lint
+        uses: ibiqlik/action-yamllint@v3
+        with:
+          file_or_dir: _data/cloudservices.yml
+          config_file: .yamllint.yml
       - name: Caching for Bundler
         uses: actions/cache@v2
         with:
